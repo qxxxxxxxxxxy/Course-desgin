@@ -25,15 +25,17 @@ public class UpdateCart {
 	@Resource
 	private FindTotalPriceService findTotalPriceService;
 
-	@RequestMapping(value="update" ,method=RequestMethod.POST)
+	@RequestMapping(value="update")
 	public void updateCart(HttpSession session,HttpServletResponse rs,HttpServletRequest rq) {
 		User u = (User)session.getAttribute("user");
 		String[] count= rq.getParameterValues("nnn");
 		String [] name = rq.getParameterValues("abcname");
-		ArrayList<Cart>cartList = (ArrayList<Cart>) this.updateCartService.updateCart(count, name,u);
-		session.setAttribute("cartList", cartList);
-		double c = this.findTotalPriceService.totalPrice(u);
-		session.setAttribute("totalPrice", c);
+		if(name != null) {
+			ArrayList<Cart>cartList = (ArrayList<Cart>) this.updateCartService.updateCart(count, name,u);
+			session.setAttribute("cartList", cartList);
+			double c = this.findTotalPriceService.totalPrice(u);
+			session.setAttribute("totalPrice", c);
+		}		
 		try {
 			rs.sendRedirect("cart.jsp");
 		} catch (IOException e) {

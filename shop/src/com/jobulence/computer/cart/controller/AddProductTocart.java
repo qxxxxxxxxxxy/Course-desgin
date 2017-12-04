@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jobulence.computer.cart.service.AddCartService;
 import com.jobulence.computer.entity.User;
+import com.jobulence.computer.user.service.FindUserByIdService;
 
 @Controller
 public class AddProductTocart {
@@ -19,12 +20,17 @@ public class AddProductTocart {
 	@Resource
 	private AddCartService addCartService;
 	
+	@Resource
+	private FindUserByIdService findUserByIdService;
+	
 	@RequestMapping("addTocartT")
 	public void addCart(@RequestParam("productname") String name,HttpSession session,HttpServletResponse rs) {
 		
 		User b = (User)session.getAttribute("user");
 		this.addCartService.AddCartByName(name, b);
 		System.out.println("添加成功");
+		User a = this.findUserByIdService.findUserById(b);
+		session.setAttribute("user", a);
 		try {
 			rs.sendRedirect("index.jsp");
 		} catch (IOException e) {
@@ -38,6 +44,8 @@ public class AddProductTocart {
 		User b = (User)session.getAttribute("user");
 		this.addCartService.AddCartByName(name, b);
 		System.out.println("添加成功");
+		User a = this.findUserByIdService.findUserById(b);
+		session.setAttribute("user", a);
 		try {
 			rs.sendRedirect("shop.jsp");
 		} catch (IOException e) {

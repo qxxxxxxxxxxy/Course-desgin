@@ -21,7 +21,7 @@ public class UserLoginService {
 	public User UserLogin(User a) {
 		User b = this.userLoginDaoImpl.UserLogin(a);
 		if(b != null) {
-			Userloginlogging c = new Userloginlogging(b.getId(),b.getName(),new Date().toLocaleString()); 
+			//Userloginlogging c = new Userloginlogging(b.getId(),b.getName(),new Date().toLocaleString()); 
 			//this.userLoginDaoImpl.saveUserloginlogging(c);
 			return b;
 		} else {

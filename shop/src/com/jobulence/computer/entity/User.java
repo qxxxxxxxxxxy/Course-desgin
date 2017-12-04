@@ -28,8 +28,8 @@ public class User {
 	private String email;
 	private int phone;
 	private String password;
-	private Set<Order>order = new HashSet<Order>();
 	private Set<Cart>cart = new HashSet<Cart>();
+	private Set<Orders>order = new HashSet<Orders>();
 	
 	@Id
 	@GeneratedValue(generator="a")
@@ -116,21 +116,20 @@ public class User {
 		this.phone = phone;
 		this.password = password;
 	}
-	@OneToMany(mappedBy="user",targetEntity=Order.class,cascade=CascadeType.ALL)
-	public Set<Order> getOrder() {
+	
+
+	@OneToMany(mappedBy="user",targetEntity=Orders.class,cascade=CascadeType.MERGE)
+	public Set<Orders> getOrder() {
 		return order;
 	}
-	public void setOrder(Set<Order> order) {
+	public void setOrder(Set<Orders> order) {
 		this.order = order;
 	}
-	@OneToMany(mappedBy="user",targetEntity=Cart.class,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="user",targetEntity=Cart.class,cascade=CascadeType.MERGE)
 	public Set<Cart> getCart() {
 		return cart;
 	}
 	public void setCart(Set<Cart> cart) {
 		this.cart = cart;
 	}
-	
-	
-	
 }

@@ -18,7 +18,8 @@ public class FindCartByNameDao {
 	
 	public Cart findCartByName(String name,User u) {
 		Session session = this.sessionFactory.getCurrentSession();
-		Set<Cart>set = u.getCart();
+		User a = session.get(User.class, new Integer(u.getId()));
+		Set<Cart>set = a.getCart();
 		ArrayList<Cart>list = new ArrayList<Cart>(set);
 		for (Cart cart : list) {
 			if(cart.getName().equals(name)) {

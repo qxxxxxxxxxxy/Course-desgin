@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
-import com.jobulence.computer.entity.Order;
+import com.jobulence.computer.entity.Orders;
 import com.jobulence.computer.entity.User;
 
 @Repository

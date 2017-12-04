@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -19,7 +20,10 @@ public class FindAllUserCartDao {
 	
 	
 	public List<Cart>findAllCart(User u) {
-		Set<Cart>set = u.getCart();
+		Session session = this.sessionFactory.getCurrentSession();
+		session.flush();
+		User a = session.load(User.class, new Integer(u.getId()));
+		Set<Cart>set = a.getCart();
 		List<Cart> list = new ArrayList<Cart>(set);
 		return list;
 	}

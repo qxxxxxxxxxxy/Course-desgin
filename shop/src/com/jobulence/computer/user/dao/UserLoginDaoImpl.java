@@ -22,8 +22,8 @@ public class UserLoginDaoImpl {
 		Query query = session.createQuery(hql);
 		query.setParameter(0, a.getEmail());
 		query.setParameter(1, a.getPassword());
-		User u = (User)query.uniqueResult();
-		return u;
+		User c = (User)query.uniqueResult();
+		return c;
 	}
 	
 	public void saveUserloginlogging(Userloginlogging a ) {

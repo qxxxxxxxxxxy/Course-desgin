@@ -13,7 +13,7 @@ import com.jobulence.computer.entity.Cart;
 import com.jobulence.computer.entity.User;
 
 @Service
-@Transactional()
+@Transactional
 public class DeleteCartService {
 
 	@Resource
@@ -22,9 +22,7 @@ public class DeleteCartService {
 	@Resource
 	private FindAllUserCartDao findAllCartDao;
 	
-	public List<Cart> delteCartAndUpdate(String name,User u){
+	public void delteCartAndUpdate(String name,User u){
 		this.deleteCartDao.deleteCartByName(name,u);
-		List<Cart>list = this.findAllCartDao.findAllCart(u);
-		return list;
 	}
 }
