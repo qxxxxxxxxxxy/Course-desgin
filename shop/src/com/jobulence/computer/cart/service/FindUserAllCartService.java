@@ -13,7 +13,7 @@ import com.jobulence.computer.entity.User;
 
 @Service
 @Transactional()
-public class FindAllCartService {
+public class FindUserAllCartService {
 	
 	@Resource
 	private FindAllUserCartDao findAllCartDao;

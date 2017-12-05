@@ -27,7 +27,7 @@ public class AddCartToOrder {
 	
 	public void toOrder(User u) {
 		this.insertIntoOrderDao.insertIntoOrder(u);
-		Set<Cart> b = u.getCart();
+		Set<Cart> b = u.getUserCart().getCart();
 		ArrayList<Cart>list = new ArrayList<Cart>(b);
 		for (Cart cart : list) {
 			this.deleteCartDao.deleteCartByName(cart.getName(), u);

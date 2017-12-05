@@ -7,7 +7,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -28,8 +30,9 @@ public class User {
 	private String email;
 	private int phone;
 	private String password;
-	private Set<Cart>cart = new HashSet<Cart>();
-	private Set<Orders>order = new HashSet<Orders>();
+	private UserCart userCart;
+	private UserOrder userOrder;
+	private Set<Userloginlogging> userLoginLogging = new HashSet<Userloginlogging>();
 	
 	@Id
 	@GeneratedValue(generator="a")
@@ -100,9 +103,33 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	@OneToOne(mappedBy="user",targetEntity=UserOrder.class,cascade=CascadeType.MERGE)
+	public UserOrder getUserOrder() {
+		return userOrder;
+	}
+	public void setUserOrder(UserOrder userOrder) {
+		this.userOrder = userOrder;
+	}
+	@OneToOne(mappedBy="user",targetEntity=UserCart.class,cascade=CascadeType.MERGE)
+	public UserCart getUserCart() {
+		return userCart;
+	}
+	public void setUserCart(UserCart userCart) {
+		this.userCart = userCart;
+	}
+	@OneToMany(cascade=CascadeType.ALL,targetEntity=Userloginlogging.class)
+	@JoinColumn(name="user_id")
+	public Set<Userloginlogging> getUserLoginLogging() {
+		return userLoginLogging;
+	}
+	
+	public void setUserLoginLogging(Set<Userloginlogging> userLoginLogging) {
+		this.userLoginLogging = userLoginLogging;
+	}
 	public  User() {
 		
 	}
+
 	public User(String name, String country, String companyname, String address, String town, String county,
 			int postcode, String email, int phone, String password) {
 		this.name = name;
@@ -117,19 +144,4 @@ public class User {
 		this.password = password;
 	}
 	
-
-	@OneToMany(mappedBy="user",targetEntity=Orders.class,cascade=CascadeType.MERGE)
-	public Set<Orders> getOrder() {
-		return order;
-	}
-	public void setOrder(Set<Orders> order) {
-		this.order = order;
-	}
-	@OneToMany(mappedBy="user",targetEntity=Cart.class,cascade=CascadeType.MERGE)
-	public Set<Cart> getCart() {
-		return cart;
-	}
-	public void setCart(Set<Cart> cart) {
-		this.cart = cart;
-	}
 }

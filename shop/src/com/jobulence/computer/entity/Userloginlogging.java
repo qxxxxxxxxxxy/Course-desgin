@@ -15,7 +15,6 @@ import org.hibernate.annotations.GenericGenerator;
 public class Userloginlogging {
 
 	private Integer id;
-	private int user_id;
 	private String user_name;
 	private String date;
 	
@@ -27,12 +26,6 @@ public class Userloginlogging {
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	public int getUser_id() {
-		return user_id;
-	}
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
 	}
 	public String getUser_name() {
 		return user_name;
@@ -46,10 +39,12 @@ public class Userloginlogging {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public Userloginlogging(int user_id, String user_name, String date) {
-		this.user_id = user_id;
+	public Userloginlogging(String user_name, String date) {
 		this.user_name = user_name;
 		this.date = date;
+	}
+	public Userloginlogging() {
+		
 	}
 	
 }

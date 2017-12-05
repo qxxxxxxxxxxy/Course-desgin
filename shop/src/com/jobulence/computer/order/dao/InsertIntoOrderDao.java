@@ -22,7 +22,7 @@ public class InsertIntoOrderDao {
 	public void insertIntoOrder(User u) {
 		Session session = this.sessionFactory.getCurrentSession();
 		User a = session.get(User.class, new Integer(u.getId()));
-		Set<Cart> b = a.getCart();
+		Set<Cart> b = a.getUserCart().getCart();
 		ArrayList<Cart>list = new ArrayList<Cart>(b);
 		for (Cart cart : list) {
 			String name = cart.getName();
@@ -31,8 +31,8 @@ public class InsertIntoOrderDao {
 			int count = cart.getCount();
 			String date = new Date().toLocaleString();
 			Orders order = new Orders(date,name,count,price,img);
-			a.getOrder().add(order);
-			order.setUser(a);
+			a.getUserOrder().getOrder().add(order);
+			order.setUserOrder(a.getUserOrder());
 			session.save(order);
 		}
 	}

@@ -14,7 +14,7 @@ public class FindUserCartQuantity {
 
 	public int find(User u) {
 		int a = 0;
-		Set<Cart> st = u.getCart();
+		Set<Cart> st = u.getUserCart().getCart();
 		for (Cart cart : st) {
 			a = a + cart.getCount();
 		}

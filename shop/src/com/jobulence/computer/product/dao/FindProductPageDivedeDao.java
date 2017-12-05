@@ -40,7 +40,7 @@ public class FindProductPageDivedeDao {
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 1);
 		query.setFirstResult((n-1)*12);
-		query.setMaxResults(6);
+		query.setMaxResults(12);
 		List<Product> list = query.list();
 		return list;
 	}
@@ -50,7 +50,7 @@ public class FindProductPageDivedeDao {
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 2);
 		query.setFirstResult((n-1)*12);
-		query.setMaxResults(6);
+		query.setMaxResults(12);
 		List<Product> list = query.list();
 		return list;
 	}
@@ -60,7 +60,7 @@ public class FindProductPageDivedeDao {
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 3);
 		query.setFirstResult((n-1)*12);
-		query.setMaxResults(6);
+		query.setMaxResults(12);
 		List<Product> list = query.list();
 		return list;
 	}
@@ -70,7 +70,7 @@ public class FindProductPageDivedeDao {
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 4);
 		query.setFirstResult((n-1)*12);
-		query.setMaxResults(6);
+		query.setMaxResults(12);
 		List<Product> list = query.list();
 		return list;
 	}
@@ -80,7 +80,7 @@ public class FindProductPageDivedeDao {
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 5);
 		query.setFirstResult((n-1)*12);
-		query.setMaxResults(6);
+		query.setMaxResults(12);
 		List<Product> list = query.list();
 		return list;
 	}
@@ -90,7 +90,7 @@ public class FindProductPageDivedeDao {
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 6);
 		query.setFirstResult((n-1)*12);
-		query.setMaxResults(6);
+		query.setMaxResults(12);
 		List<Product> list = query.list();
 		return list;
 	}
@@ -100,7 +100,7 @@ public class FindProductPageDivedeDao {
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 7);
 		query.setFirstResult((n-1)*12);
-		query.setMaxResults(6);
+		query.setMaxResults(12);
 		List<Product> list = query.list();
 		return list;
 	}

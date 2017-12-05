@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jobulence.computer.cart.service.AddCartService;
+import com.jobulence.computer.cart.service.FindUserCartQuantity;
 import com.jobulence.computer.entity.User;
 import com.jobulence.computer.user.service.FindUserByIdService;
 
@@ -22,15 +23,17 @@ public class AddProductTocart {
 	
 	@Resource
 	private FindUserByIdService findUserByIdService;
+	@Resource
+	private FindUserCartQuantity findUserCartQuantity;
 	
 	@RequestMapping("addTocartT")
 	public void addCart(@RequestParam("productname") String name,HttpSession session,HttpServletResponse rs) {
-		
 		User b = (User)session.getAttribute("user");
 		this.addCartService.AddCartByName(name, b);
-		System.out.println("添加成功");
 		User a = this.findUserByIdService.findUserById(b);
 		session.setAttribute("user", a);
+		int nn = this.findUserCartQuantity.find(b);
+		session.setAttribute("quantity", nn);
 		try {
 			rs.sendRedirect("index.jsp");
 		} catch (IOException e) {
@@ -43,7 +46,6 @@ public class AddProductTocart {
 	public void addToCart(@RequestParam("productname") String name,HttpSession session,HttpServletResponse rs) {
 		User b = (User)session.getAttribute("user");
 		this.addCartService.AddCartByName(name, b);
-		System.out.println("添加成功");
 		User a = this.findUserByIdService.findUserById(b);
 		session.setAttribute("user", a);
 		try {

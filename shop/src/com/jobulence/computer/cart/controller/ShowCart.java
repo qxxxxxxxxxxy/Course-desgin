@@ -10,8 +10,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.jobulence.computer.cart.service.FindAllCartService;
+import com.jobulence.computer.cart.service.FindUserAllCartService;
 import com.jobulence.computer.cart.service.FindTotalPriceService;
+import com.jobulence.computer.cart.service.FindUserCartQuantity;
 import com.jobulence.computer.entity.Cart;
 import com.jobulence.computer.entity.User;
 
@@ -19,7 +20,7 @@ import com.jobulence.computer.entity.User;
 public class ShowCart {
 
 	@Resource
-	private FindAllCartService findAllCartService;
+	private FindUserAllCartService findAllCartService;
 	@Resource
 	private FindTotalPriceService findTotalPriceService;
 	@RequestMapping("showCart")

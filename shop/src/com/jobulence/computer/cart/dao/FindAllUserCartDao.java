@@ -21,9 +21,8 @@ public class FindAllUserCartDao {
 	
 	public List<Cart>findAllCart(User u) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.flush();
 		User a = session.load(User.class, new Integer(u.getId()));
-		Set<Cart>set = a.getCart();
+		Set<Cart>set = a.getUserCart().getCart();
 		List<Cart> list = new ArrayList<Cart>(set);
 		return list;
 	}

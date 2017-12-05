@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.jobulence.computer.entity.User;
 
 @Repository
-public class FindUserById {
+public class FindUserByIdDao {
 
 	@Resource
 	private SessionFactory sessionFactory;

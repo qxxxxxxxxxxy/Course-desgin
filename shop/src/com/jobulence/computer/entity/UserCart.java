@@ -6,19 +6,22 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="PRODUCTTYPE")
-public class ProductType {
+@Table(name="USERCART")
+public class UserCart {
+
 	
 	private Integer id;
-	private String type;
+	private User user;
+	private Set<Cart>cart = new HashSet<Cart>();
 	
 	@Id
 	@GeneratedValue(generator="a")
@@ -29,11 +32,19 @@ public class ProductType {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getType() {
-		return type;
+	@OneToOne()
+	@JoinColumn(name="user_id")
+	public User getUser() {
+		return user;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setUser(User user) {
+		this.user = user;
 	}
-
+	@OneToMany(mappedBy="userCart",targetEntity=Cart.class,cascade=CascadeType.MERGE)
+	public Set<Cart> getCart() {
+		return cart;
+	}
+	public void setCart(Set<Cart> cart) {
+		this.cart = cart;
+	}
 }

@@ -8,25 +8,27 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import com.jobulence.computer.entity.User;
-import com.jobulence.computer.entity.Userloginlogging;
+import com.jobulence.computer.entity.UserOrder;
 
 @Repository
-public class UserLoginDaoImpl {
+public class GenerateUserOrderDao {
 
 	@Resource
 	private SessionFactory sessionFactory;
 	
-	public User UserLogin(User a) {
+	public boolean generateUserOrder(User u) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = "from User u where u.email = ? and u.password = ?";
+		String hql = "from UserOrder u where user_id = ?";
 		Query query = session.createQuery(hql);
-		query.setParameter(0, a.getEmail());
-		query.setParameter(1, a.getPassword());
-		User c = (User)query.uniqueResult();
-		return c;
-	}
-	
-	public void saveUserloginlogging(Userloginlogging a ) {
-		this.sessionFactory.getCurrentSession().save(a);
+		query.setParameter(0, u.getId());
+		UserOrder order = (UserOrder)query.uniqueResult();
+		if(order == null) {
+			order = new UserOrder();
+			order.setUser(u);
+			u.setUserOrder(u.getUserOrder());
+			session.save(order);
+			return true;
+		}
+		return false;
 	}
 }

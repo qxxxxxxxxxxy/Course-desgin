@@ -19,7 +19,7 @@ public class Orders {
 	private int count;
 	private double price;
 	private String img;
-	private User user;
+	private UserOrder userOrder;
 
 	@Id
 	@GeneratedValue(generator="a")
@@ -48,15 +48,6 @@ public class Orders {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
 	public double getPrice() {
 		return price;
 	}
@@ -69,10 +60,17 @@ public class Orders {
 	public void setImg(String img) {
 		this.img = img;
 	}
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	public UserOrder getUserOrder() {
+		return userOrder;
+	}
+	public void setUserOrder(UserOrder userOrder) {
+		this.userOrder = userOrder;
+	}
 	public Orders() {
 		
 	}
-	
 	public Orders(String date, String name, int count, double price, String img) {
 		this.date = date;
 		this.name = name;

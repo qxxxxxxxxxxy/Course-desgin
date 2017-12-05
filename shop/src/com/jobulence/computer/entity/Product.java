@@ -24,7 +24,7 @@ public class Product {
 	private String img3;
 	private String img4;
 	private String tags;
-	private int producttype;
+	private ProductType producttype;
 	
 	@Id
 	@GeneratedValue(generator="a")
@@ -89,12 +89,13 @@ public class Product {
 	public void setTags(String tags) {
 		this.tags = tags;
 	}
-	public int getProducttype() {
+	@ManyToOne(targetEntity=ProductType.class)
+	@JoinColumn(name="producttype")
+	public ProductType getProducttype() {
 		return producttype;
 	}
-	public void setProducttype(int producttype) {
+	public void setProducttype(ProductType producttype) {
 		this.producttype = producttype;
 	}
 
-	
 }

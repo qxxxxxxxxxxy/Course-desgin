@@ -19,7 +19,7 @@
 	</form><br/>
 	还没有账户?点击注册 <a href="${s}/regist.jsp">注册</a>
 	<br/><br/>
-	<a href="find.jsp">忘记密码?</a>
+	<a href="find.jsp">忘记密码?</a>2
 	<br/><br/>
 </body>
 </center>

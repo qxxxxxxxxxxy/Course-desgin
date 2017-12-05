@@ -20,7 +20,8 @@ public class Cart {
 	private double price;
 	private String img;
 	private int count;
-	private User user;
+	private String date;
+	private UserCart userCart;
 	@Id
 	@GeneratedValue(generator="a")
 	@GenericGenerator(name="a",strategy="identity")
@@ -54,15 +55,19 @@ public class Cart {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
 	@ManyToOne
 	@JoinColumn(name="user_id")
-	public User getUser() {
-		return user;
+	public UserCart getUserCart() {
+		return userCart;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserCart(UserCart userCart) {
+		this.userCart = userCart;
 	}
-	public Cart() {
-		
-	}
+
 }

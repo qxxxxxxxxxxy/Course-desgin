@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jobulence.computer.entity.Cart;
 import com.jobulence.computer.entity.User;
-import com.jobulence.computer.user.dao.FindUserById;
+import com.jobulence.computer.user.dao.FindUserByIdDao;
 
 @Repository
 public class DeleteCartDao {
@@ -20,13 +20,13 @@ public class DeleteCartDao {
 	private FindCartByNameDao findCartByNameDao;
 
 	@Resource
-	private FindUserById findUserById;
+	private FindUserByIdDao findUserById;
 
 	public void deleteCartByName(String name, User u) {
 		Session session = this.sessionFactory.getCurrentSession();
 		Cart c = this.findCartByNameDao.findCartByName(name, u);
 		User a = session.load(User.class, new Integer(u.getId()));
-		a.getCart().remove(c);
+		a.getUserCart().getCart().remove(c);
 		session.delete(c);
 	}
 }

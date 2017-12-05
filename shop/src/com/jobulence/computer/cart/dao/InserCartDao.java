@@ -18,8 +18,8 @@ public class InserCartDao {
 	public void InsertIntoCartDao(Cart c,User u) {
 		Session session = this.sessionFactory.getCurrentSession();
 		User a = session.load(User.class, new Integer(u.getId()));
-		a.getCart().add(c);
-		c.setUser(a);
+		a.getUserCart().getCart().add(c);
+		c.setUserCart(u.getUserCart());
 		session.save(c);
 	}
 }

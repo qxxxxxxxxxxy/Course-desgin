@@ -8,15 +8,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jobulence.computer.entity.User;
-import com.jobulence.computer.user.dao.UserRegistDaoImpl;
+import com.jobulence.computer.user.dao.GenerateUserCartDao;
+import com.jobulence.computer.user.dao.GenerateUserOrderDao;
+import com.jobulence.computer.user.dao.UserRegistDao;
 
 @Service
 @Transactional(readOnly=true)
 public class UserRegistService {
 
 	@Resource
-	private UserRegistDaoImpl userRegistDaoImpl;
-
+	private UserRegistDao userRegistDaoImpl;
+	@Resource
+	private GenerateUserCartDao generateUserCartDao;
+	@Resource
+	private GenerateUserOrderDao generateUserOrderDao;
+	
 	public boolean regist(User u) {
 		ArrayList<User> list = (ArrayList<User>) this.userRegistDaoImpl.findAll();
 		for (User user : list) {
@@ -25,6 +31,9 @@ public class UserRegistService {
 			}
 		}
 		this.userRegistDaoImpl.saveUser(u);
-		return true;
+		if(this.generateUserCartDao.generateUserCart(u) && this.generateUserOrderDao.generateUserOrder(u)) {
+			return true;
+		}
+		return false;
 	}
 }

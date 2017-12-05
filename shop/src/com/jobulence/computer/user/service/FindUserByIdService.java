@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jobulence.computer.entity.User;
-import com.jobulence.computer.user.dao.FindUserById;
+import com.jobulence.computer.user.dao.FindUserByIdDao;
 
 @Service
 @Transactional(readOnly=true)
 public class FindUserByIdService {
 	
 	@Resource
-	private FindUserById findUserById;
+	private FindUserByIdDao findUserById;
 	
 	public User findUserById(User u) {
 		return this.findUserById.findUserById(u);

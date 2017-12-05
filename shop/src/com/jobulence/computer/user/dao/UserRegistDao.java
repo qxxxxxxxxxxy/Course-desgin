@@ -13,7 +13,7 @@ import com.jobulence.computer.entity.Orders;
 import com.jobulence.computer.entity.User;
 
 @Repository
-public class UserRegistDaoImpl {
+public class UserRegistDao {
 
 	@Resource
 	private SessionFactory sessionFactory;

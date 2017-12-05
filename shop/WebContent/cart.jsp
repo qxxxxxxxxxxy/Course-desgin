@@ -107,7 +107,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="${s}/index.jsp">Home</a></li>
-                        <li><a href="${s}/product/pageDivide?num=1">Shop page</a></li>
+                        <li><a href="${s}/product/pageDivide?num=1&pageName=beginning">Shop page</a></li>
                         <li><a href="${s}/single-product.jsp">Single product</a></li>
                         <li class="active"><a href="${s}/showCart">Cart</a></li>
                         <li><a href="#">Category</a></li>
@@ -610,13 +610,13 @@
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">Categories</h2>
                         <ul>
-                            <li><a href="product/Computer?num=1">Computer</a></li>
-                            <li><a href="product/Phone?num=1">Phone</a></li>
-                            <li><a href="product/Tv?num=1">Tv</a></li>
-                            <li><a href="product/Macbook?num=1">Macbook</a></li>
-                            <li><a href="product/AirConditoner?num=1">AirConditoner</a></li>
-                            <li><a href="product/Playstation?num=1">Playstation</a></li>
-                            <li><a href="product/Ipad?num=1">Ipad</a></li>
+                           <li><a href="product/Computer?num=1&pageName=Computer">Computer</a></li>
+                            <li><a href="product/Phone?num=1&pageName=Phone">Phone</a></li>
+                            <li><a href="product/Tv?num=1&pageName=Tv">Tv</a></li>
+                            <li><a href="product/Macbook?num=1&pageName=Macbook">Macbook</a></li>
+                            <li><a href="product/AirConditoner?num=1&pageName=AirConditoner">AirConditoner</a></li>
+                            <li><a href="product/Playstation?num=1&pageName=Playstation">Playstation</a></li>
+                            <li><a href="product/Ipad?num=1&pageName=Ipad">Ipad</a></li>
                         </ul>                        
                     </div>
                 </div>

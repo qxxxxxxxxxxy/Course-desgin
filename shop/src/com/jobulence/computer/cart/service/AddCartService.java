@@ -1,5 +1,7 @@
 package com.jobulence.computer.cart.service;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -38,6 +40,7 @@ public class AddCartService {
 			c.setImg(p.getImg1());
 			c.setName(p.getName());
 			c.setPrice(p.getDiscount());
+			c.setDate(new Date().toLocaleString());
 			this.inserCartDao.InsertIntoCartDao(c, u);
 			return true;
 		} else {
