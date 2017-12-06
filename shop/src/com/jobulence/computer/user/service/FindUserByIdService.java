@@ -9,7 +9,7 @@ import com.jobulence.computer.entity.User;
 import com.jobulence.computer.user.dao.FindUserByIdDao;
 
 @Service
-@Transactional(readOnly=true)
+@Transactional()
 public class FindUserByIdService {
 	
 	@Resource

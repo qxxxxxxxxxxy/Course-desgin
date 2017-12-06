@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>  
+	<diskStore path="C:\java\huncun.data"/>
+    <defaultCache maxElementsInMemory="100" eternal="false" overflowToDisk="true"/> 
+	<cache name="hello"
+		   maxElementsOnDisk="200"
+		   maxElementsInMemory="100"
+		   eternal="false"
+		   overflowToDisk="true"
+		   timeToIdleSeconds="0" 
+		   timeToLiveSeconds="0"
+		   />
+		   <!-- 
+		   		diskStore:当数据缓存到硬盘时的位置
+				defaultCache：默认的数据过期策略
+				maxElementsInMemory:内存的二级缓存中最多存放对象的个数
+				timeToIdleSeconds：允许缓存中对象出现的最大空闲时间 0一直可以存活
+				timeToLiveSeconds：允许缓存中对象出现的最长时间 0一直可以存活
+				overflowToDisk：true当缓存中对象大于10个时，采用硬盘缓存
+		    -->
+</ehcache>

@@ -13,7 +13,7 @@ import com.jobulence.computer.user.dao.GenerateUserOrderDao;
 import com.jobulence.computer.user.dao.UserRegistDao;
 
 @Service
-@Transactional(readOnly=true)
+@Transactional()
 public class UserRegistService {
 
 	@Resource

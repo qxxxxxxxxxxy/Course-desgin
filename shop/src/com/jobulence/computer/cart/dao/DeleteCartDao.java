@@ -25,8 +25,6 @@ public class DeleteCartDao {
 	public void deleteCartByName(String name, User u) {
 		Session session = this.sessionFactory.getCurrentSession();
 		Cart c = this.findCartByNameDao.findCartByName(name, u);
-		User a = session.load(User.class, new Integer(u.getId()));
-		a.getUserCart().getCart().remove(c);
 		session.delete(c);
 	}
 }
