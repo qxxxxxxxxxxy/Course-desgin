@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>jQuery带背景切换登录注册表单</title>
+<title>用户登录</title>
 
 <link rel="stylesheet" href="css1/style.css" />
 
@@ -15,7 +15,7 @@
 <div class="login-container">
 	
 	<div class="connect">
-		<p>欢迎登录</p>
+		<p style="font-size: 40px">欢迎登录</p>
 	</div>
 	
 	<form action="User/login" method="post" id="loginForm">
@@ -29,11 +29,15 @@
 		<button id="submit" type="submit">登 陆</button>
 	</form>
 
-	<a href="register.html">
+	<a href="register.jsp">
 		<button type="button" class="register-tis">还有没有账号?</button>
 	</a><br/>
 	<a href="#">
 		<button type="button" class="register-tis">忘记密码?</button>
+	</a>
+	<br/>
+	<a href="adminLogin.jsp">
+		<button type="button" class="register-tis">管理员登录点击这里</button>
 	</a>
 
 </div>

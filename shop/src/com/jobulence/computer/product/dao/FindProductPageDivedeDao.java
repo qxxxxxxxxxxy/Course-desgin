@@ -36,7 +36,7 @@ public class FindProductPageDivedeDao {
 	}
 	public List<Product> findComputerPageDivideDao(int n) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = "from Product p where p.producttype = ? ";
+		String hql = "from Product p where p.producttype_id = ? ";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 1);
 		query.setFirstResult((n-1)*12);
@@ -46,7 +46,7 @@ public class FindProductPageDivedeDao {
 	}
 	public List<Product> findPhonePageDivideDao(int n) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = "from Product p where p.producttype = ? ";
+		String hql = "from Product p where p.producttype_id = ? ";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 2);
 		query.setFirstResult((n-1)*12);
@@ -56,7 +56,7 @@ public class FindProductPageDivedeDao {
 	}
 	public List<Product> findTvPageDivideDao(int n) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = "from Product p where p.producttype = ? ";
+		String hql = "from Product p where p.producttype_id = ? ";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 3);
 		query.setFirstResult((n-1)*12);
@@ -66,7 +66,7 @@ public class FindProductPageDivedeDao {
 	}
 	public List<Product> findMacbookPageDivideDao(int n) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = "from Product p where p.producttype = ? ";
+		String hql = "from Product p where p.producttype_id = ? ";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 4);
 		query.setFirstResult((n-1)*12);
@@ -76,7 +76,7 @@ public class FindProductPageDivedeDao {
 	}
 	public List<Product> findAirConditonerPageDivideDao(int n) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = "from Product p where p.producttype = ? ";
+		String hql = "from Product p where p.producttype_id = ? ";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 5);
 		query.setFirstResult((n-1)*12);
@@ -86,7 +86,7 @@ public class FindProductPageDivedeDao {
 	}
 	public List<Product> findPlaystationPageDivideDao(int n) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = "from Product p where p.producttype = ? ";
+		String hql = "from Product p where p.producttype_id = ? ";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 6);
 		query.setFirstResult((n-1)*12);
@@ -96,7 +96,7 @@ public class FindProductPageDivedeDao {
 	}
 	public List<Product> findIpadPageDivideDao(int n) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = "from Product p where p.producttype = ? ";
+		String hql = "from Product p where p.producttype_id = ? ";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, 7);
 		query.setFirstResult((n-1)*12);

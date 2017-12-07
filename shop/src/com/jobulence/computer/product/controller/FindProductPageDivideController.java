@@ -36,6 +36,7 @@ public class FindProductPageDivideController {
 			ArrayList<Product> list = (ArrayList<Product>) this.findProductService.findAllProductPageDivideService(c);
 			session.setAttribute("list", list);
 			session.setAttribute("num", c);
+			session.setAttribute("listName", name);
 			try {
 				rs.sendRedirect("../shop.jsp");
 			} catch (IOException e) {
