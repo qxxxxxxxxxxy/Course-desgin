@@ -1,5 +1,6 @@
 package com.jobulence.computer.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +27,9 @@ public class Product {
 	private String tags;
 	private int producttype_id;
 	
+	public Product() {
+		
+	}
 	@Id
 	@GeneratedValue(generator="a")
 	@GenericGenerator(name="a",strategy="identity")
@@ -53,6 +57,7 @@ public class Product {
 	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
+	@Column(name="DESCRIPTION")
 	public String getDesc() {
 		return desc;
 	}
@@ -95,5 +100,16 @@ public class Product {
 	public void setProducttype_id(int producttype_id) {
 		this.producttype_id = producttype_id;
 	}
+	public Product(String name, double price, double discount, String desc, String img1, String tags, int producttype_id) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.discount = discount;
+		this.desc = desc;
+		this.img1 = img1;
+		this.tags = tags;
+		this.producttype_id = producttype_id;
+	}
 
+	
 }

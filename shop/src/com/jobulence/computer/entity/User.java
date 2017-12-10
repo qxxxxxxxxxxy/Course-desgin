@@ -28,7 +28,7 @@ public class User {
 	private String county;
 	private int postcode;
 	private String email;
-	private int phone;
+	private String phone;
 	private String password;
 	private UserCart userCart;
 	private UserOrder userOrder;
@@ -91,10 +91,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	public String getPassword() {
@@ -131,7 +131,7 @@ public class User {
 	}
 
 	public User(String name, String country, String companyname, String address, String town, String county,
-			int postcode, String email, int phone, String password) {
+			int postcode, String email, String phone, String password) {
 		this.name = name;
 		this.country = country;
 		this.companyname = companyname;

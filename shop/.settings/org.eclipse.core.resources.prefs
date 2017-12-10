@@ -2,5 +2,7 @@ eclipse.preferences.version=1
 encoding//WebContent/cart.jsp=UTF-8
 encoding//WebContent/houtaiguanli/Views/admin.jsp=UTF-8
 encoding//WebContent/houtaiguanli/Views/default.jsp=UTF-8
+encoding//WebContent/houtaiguanli/Views/showAddProduct.jsp=UTF-8
+encoding//WebContent/houtaiguanli/Views/showProduct.jsp=UTF-8
 encoding//WebContent/login.jsp=UTF-8
 encoding//WebContent/single-product.jsp=UTF-8

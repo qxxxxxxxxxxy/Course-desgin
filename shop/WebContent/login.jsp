@@ -13,11 +13,9 @@
 <body>
 
 <div class="login-container">
-	
 	<div class="connect">
 		<p style="font-size: 40px">欢迎登录</p>
 	</div>
-	
 	<form action="User/login" method="post" id="loginForm">
 		<div>
 			<input type="text" name="email" class="username" placeholder="邮箱" autocomplete="off"/>
@@ -39,9 +37,7 @@
 	<a href="adminLogin.jsp">
 		<button type="button" class="register-tis">管理员登录点击这里</button>
 	</a>
-
 </div>
-
 <script src="js1/jquery.min.js"></script>
 <script src="js1/common.js"></script>
 <!--背景图片自动更换-->

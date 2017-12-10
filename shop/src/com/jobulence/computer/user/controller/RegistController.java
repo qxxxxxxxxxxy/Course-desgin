@@ -19,7 +19,7 @@ public class RegistController {
 	@RequestMapping("/regist")
 	public String Regist(@RequestParam("name") String name,@RequestParam("country") String country,@RequestParam("companyname") String companyname,
 			@RequestParam("address") String address,@RequestParam("town") String town,@RequestParam("county") String county,
-			@RequestParam("postcode") int postcode,@RequestParam("email") String email,@RequestParam("phone") int phone,
+			@RequestParam("postcode") int postcode,@RequestParam("email") String email,@RequestParam("phone") String phone,
 			@RequestParam("password") String password) {
 		User u = new User(name,country,companyname,address,town,county,postcode,email,phone,password);
 		System.out.println(name);

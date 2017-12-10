@@ -19,9 +19,6 @@ public class DeleteCartDao {
 	@Resource
 	private FindCartByNameDao findCartByNameDao;
 
-	@Resource
-	private FindUserByIdDao findUserById;
-
 	public void deleteCartByName(String name, User u) {
 		Session session = this.sessionFactory.getCurrentSession();
 		Cart c = this.findCartByNameDao.findCartByName(name, u);

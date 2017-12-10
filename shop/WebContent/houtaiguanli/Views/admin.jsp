@@ -63,17 +63,17 @@
                         </div>
                         <div id="collapseOne" class="accordion-body collapse in">
                             <div class="accordion-inner">
-                                <img class="left-icon-child" src="../images/32/4962_sitemap.png" /><span class="left-body"> 模块管理</span>
+                                <img class="left-icon-child" src="../images/32/4962_sitemap.png" /><span class="left-body">&nbsp;<a href="${s}/Product/showProduct?name=showProduct">商品管理</a></span>
                             </div>
                             <div class="accordion-inner">
-                                <img class="left-icon-child" src="../images/32/4957_customers.png" /><span class="left-body"> 角色管理</span>
+                                <img class="left-icon-child" src="../images/32/4957_customers.png" /><span class="left-body"><a href="${s}/Product/showAddProduct?name=showAddProduct"> 商品添加</a></span>
 
                             </div>
                             <div class="accordion-inner">
                                 <img class="left-icon-child" src="../images/32/4992_user.png" /><span class="left-body"><a href="${s}/User/showUser?name=userAdmin">用户管理</a></span>
                             </div>
                             <div class="accordion-inner">
-                                <img class="left-icon-child" src="../images/32/612.png" /><span class="left-body"> 单位管理</span>
+                                <img class="left-icon-child" src="../images/32/612.png" /><span class="left-body"><a href="${s }/Product/ProductType?name=addProductType"> 类型添加</a></span>
 
                             </div>
                             <div class="accordion-inner">

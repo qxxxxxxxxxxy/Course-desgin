@@ -12,7 +12,7 @@
 	<body style="background-color: #fafad2">
 		<h1>欢迎注册</h1>
 		<hr>
-		<form action="/shop/user/regist" method="post">
+		<form action="${s }/user/regist" method="post">
 			用户名:<input type="text" name="name"><br/>
 			密码:&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password"><br/>
 			国家:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="country"><br/>
