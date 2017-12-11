@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache>  
-	<diskStore path="C:\java\huncun.data"/>
+	<diskStore path="C:\\java\\huncun.data"/>
     <defaultCache maxElementsInMemory="100" eternal="false" overflowToDisk="true"/> 
 	<cache name="hello"
 		   maxElementsOnDisk="200"

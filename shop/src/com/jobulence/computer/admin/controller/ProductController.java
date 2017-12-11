@@ -78,7 +78,7 @@ public class ProductController {
 			try {
 				String img1 = file.getOriginalFilename();
 				img1 = "img/" + img1;
-				FileCopyUtils.copy(file.getBytes(), new File("C:\\Users\\ll\\Desktop\\shop\\WebContent\\img", file.getOriginalFilename()));
+				FileCopyUtils.copy(file.getBytes(), new File("C:\\Users\\ll\\Desktop\\shop\\WebContent", file.getOriginalFilename()));
 				this.updateProductService.updateProduct(id, productName, price, discount, desc, img1,
 						productProducttype_id,tags);
 				rp.sendRedirect(ItemPath + "/Product/showProduct");
@@ -110,14 +110,13 @@ public class ProductController {
 			@RequestParam("productTags") String tags,HttpSession session,
 			HttpServletResponse rp, HttpServletRequest rq) throws IOException {
 		String img1 = file.getOriginalFilename();
-		String ItemPath = rq.getContextPath();
 		img1 = "img/" + img1;
 		if(file.isEmpty()) {
 			Product p = new Product(productName,price,discount,desc,img1,tags,productProducttype_id);
 			this.addProductService.addProduct(p);
 			rp.sendRedirect("../houtaiguanli/Views/showAddProduct.jsp");
 		} else {
-			FileCopyUtils.copy(file.getBytes(), new File("C:\\Users\\ll\\Desktop\\shop\\WebContent\\img", img1));
+			FileCopyUtils.copy(file.getBytes(), new File("C:\\Users\\ll\\Desktop\\shop\\WebContent", img1));
 			Product p = new Product(productName,price,discount,desc,img1,tags,productProducttype_id);
 			this.addProductService.addProduct(p);
 			rp.sendRedirect("../houtaiguanli/Views/showAddProduct.jsp");

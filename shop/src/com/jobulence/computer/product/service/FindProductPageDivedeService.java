@@ -13,6 +13,7 @@ import com.jobulence.computer.product.dao.FindProductPageDivedeDao;
 
 @Service
 @Transactional(readOnly=true)
+@Cacheable(value="hello",key="#id")
 public class FindProductPageDivedeService {
 
 	@Resource
