@@ -71,25 +71,22 @@ public class ProductController {
 			@RequestParam("productPrice") double price, @RequestParam("productDiscount") double discount,
 			@RequestParam("productDesc") String desc, @RequestParam("upfile") MultipartFile file,
 			@RequestParam("productProducttype_id") int productProducttype_id, @RequestParam("img1") String img,
-			@RequestParam("productTags") String tags,
+			@RequestParam("productTags") String tags,HttpSession session,
 			HttpServletResponse rp, HttpServletRequest rq) throws IOException {
-		String ItemPath = rq.getContextPath();
+		String path = session.getServletContext().getRealPath("/");
 		if (file.isEmpty()) {
-			try {
-				String img1 = file.getOriginalFilename();
-				img1 = "img/" + img1;
-				FileCopyUtils.copy(file.getBytes(), new File("C:\\Users\\ll\\Desktop\\shop\\WebContent", file.getOriginalFilename()));
-				this.updateProductService.updateProduct(id, productName, price, discount, desc, img1,
-						productProducttype_id,tags);
-				rp.sendRedirect(ItemPath + "/Product/showProduct");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		} else {
 			this.updateProductService.updateProduct(id, productName, price, discount, desc, img, productProducttype_id,tags);
-			rp.sendRedirect(ItemPath + "/Product/showProduct");
+			rp.sendRedirect("../houtaiguanli/Views/admin.jsp");
+		} else {
+
+			String img1 = file.getOriginalFilename();
+			img1 = "img/" + img1;
+			FileCopyUtils.copy(file.getBytes(), new File(path+"\\img", file.getOriginalFilename()));
+			this.updateProductService.updateProduct(id, productName, price, discount, desc, img1,
+					productProducttype_id,tags);
+			rp.sendRedirect("../houtaiguanli/Views/admin.jsp.jsp");
 		}
-	}
+}
 
 	@RequestMapping("/deleteProduct")
 	public void delteProduct(@RequestParam("id") int id, HttpServletResponse rp,HttpServletRequest rq) {
@@ -111,12 +108,13 @@ public class ProductController {
 			HttpServletResponse rp, HttpServletRequest rq) throws IOException {
 		String img1 = file.getOriginalFilename();
 		img1 = "img/" + img1;
+		String path = session.getServletContext().getRealPath("/");
 		if(file.isEmpty()) {
 			Product p = new Product(productName,price,discount,desc,img1,tags,productProducttype_id);
 			this.addProductService.addProduct(p);
 			rp.sendRedirect("../houtaiguanli/Views/showAddProduct.jsp");
 		} else {
-			FileCopyUtils.copy(file.getBytes(), new File("C:\\Users\\ll\\Desktop\\shop\\WebContent", img1));
+			FileCopyUtils.copy(file.getBytes(), new File( path + "\\img", file.getOriginalFilename()));
 			Product p = new Product(productName,price,discount,desc,img1,tags,productProducttype_id);
 			this.addProductService.addProduct(p);
 			rp.sendRedirect("../houtaiguanli/Views/showAddProduct.jsp");
