@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jobulence.computer.cart.service.AddCartService;
+import com.jobulence.computer.cart.service.FindTotalPriceService;
 import com.jobulence.computer.cart.service.FindUserCartQuantity;
 import com.jobulence.computer.entity.User;
 import com.jobulence.computer.user.service.FindUserByIdService;
@@ -25,15 +26,18 @@ public class AddProductTocartController {
 	private FindUserByIdService findUserByIdService;
 	@Resource
 	private FindUserCartQuantity findUserCartQuantity;
-	
+	@Resource
+	private FindTotalPriceService findTotalPriceService;
 	@RequestMapping("addTocartT")
 	public void addCart(@RequestParam("productname") String name,HttpSession session,HttpServletResponse rs) {
 		User b = (User)session.getAttribute("user");
 		this.addCartService.AddCartByName(name, b);
 		User a = this.findUserByIdService.findUserById(b);
 		session.setAttribute("user", a);
-		int nn = this.findUserCartQuantity.find(b);
+		int nn = this.findUserCartQuantity.find(a);
 		session.setAttribute("quantity", nn);
+		double mm = this.findTotalPriceService.totalPrice(a);
+		session.setAttribute("totalPrice", mm);
 		try {
 			rs.sendRedirect("index.jsp");
 		} catch (IOException e) {
@@ -48,6 +52,10 @@ public class AddProductTocartController {
 		this.addCartService.AddCartByName(name, b);
 		User a = this.findUserByIdService.findUserById(b);
 		session.setAttribute("user", a);
+		int nn = this.findUserCartQuantity.find(a);
+		session.setAttribute("quantity", nn);
+		double mm = this.findTotalPriceService.totalPrice(a);
+		session.setAttribute("totalPrice", mm);
 		try {
 			rs.sendRedirect("shop.jsp");
 		} catch (IOException e) {
