@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.jobulence.computer.entity.User;
 import com.jobulence.computer.user.service.UserRegistService;
 
+/**
+ * 用户注册
+ * @author 秦晓宇
+ *
+ */
 @Controller
 @RequestMapping("user")
 public class RegistController {

@@ -20,6 +20,11 @@ import com.jobulence.computer.product.service.FindProductPageDivedeService;
 import com.jobulence.computer.user.service.FindUserByIdService;
 import com.jobulence.computer.user.service.UserLoginService;
 
+/**
+ * 用户登录
+ * @author 秦晓宇
+ *
+ */
 @Controller
 @RequestMapping("User")
 public class LoginController {
@@ -36,6 +41,13 @@ public class LoginController {
 	@Resource
 	private FindUserByIdService findUserByIdService;
 	@RequestMapping(value="/login",method=RequestMethod.POST)
+	/**
+	 * 用户登录,登录后把用户存到session里
+	 * @param email
+	 * @param password
+	 * @param rs
+	 * @param session
+	 */
 	public void login(@RequestParam("email") String email, @RequestParam("password") String password,HttpServletResponse rs,
 			HttpSession session) {
 		User a = new User();

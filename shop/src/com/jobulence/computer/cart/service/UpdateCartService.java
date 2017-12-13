@@ -27,6 +27,7 @@ public class UpdateCartService {
 	private FindAllUserCartDao findAllCartDao;
 	
 	public List<Cart> updateCart(String[] count,String []name,User u) {
+		//字符串数组转换为Integer数组
 		Integer[] c = ArrayStringtoInteger.arrayStringtoInteger(count);
 		this.updateCartDao.updateCart(c, name,u);
 		ArrayList<Cart>cartList = (ArrayList<Cart>)this.findAllCartDao.findAllCart(u);

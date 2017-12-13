@@ -9,6 +9,11 @@ import org.springframework.stereotype.Repository;
 
 import com.jobulence.computer.entity.Product;
 
+/**
+ * 显示所有商品
+ * @author 秦晓宇
+ *
+ */
 @Repository
 public class ShowAllProductDao {
 

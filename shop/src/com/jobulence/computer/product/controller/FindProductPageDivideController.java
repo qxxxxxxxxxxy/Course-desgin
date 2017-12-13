@@ -16,12 +16,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.jobulence.computer.entity.Product;
 import com.jobulence.computer.product.service.FindProductPageDivedeService;
 
+/**
+ * 产品分页
+ * @author 秦晓宇
+ *
+ */
 @Controller
 @RequestMapping("product")
 public class FindProductPageDivideController {
 	@Resource
 	private FindProductPageDivedeService findProductService;
 
+	/**
+	 * 总分页
+	 * @param rs
+	 * @param a
+	 * @param session
+	 * @param name 产品名字
+	 * @param rq
+	 */
 	@RequestMapping("/pageDivide")
 	public void pageDivide(HttpServletResponse rs, @RequestParam("num") String a, 
 			HttpSession session,@RequestParam("pageName") String name,HttpServletRequest rq) {
@@ -56,6 +69,13 @@ public class FindProductPageDivideController {
 		}
 	}
 
+	/**
+	 * 电脑分页
+	 * @param rs
+	 * @param a
+	 * @param session
+	 * @param name
+	 */
 	@RequestMapping("/Computer")
 	public void ComputerPageDivide(HttpServletResponse rs, @RequestParam("num") String a, HttpSession session,@RequestParam("pageName") String name) {
 		int c = Integer.parseInt(a);
@@ -77,6 +97,13 @@ public class FindProductPageDivideController {
 		}
 	}
 
+	/**
+	 * 手机分页
+	 * @param rs
+	 * @param a
+	 * @param session
+	 * @param name
+	 */
 	@RequestMapping("/Phone")
 	public void PhonePageDivide(HttpServletResponse rs, @RequestParam("num") String a, HttpSession session ,@RequestParam("pageName") String name) {
 		int c = Integer.parseInt(a);
@@ -98,6 +125,13 @@ public class FindProductPageDivideController {
 		}
 	}
 
+	/**
+	 * 电视分页
+	 * @param rs
+	 * @param a
+	 * @param session
+	 * @param name
+	 */
 	@RequestMapping("/Tv")
 	public void TvPageDivide(HttpServletResponse rs, @RequestParam("num") String a, HttpSession session,@RequestParam("pageName") String name) {
 		int c = Integer.parseInt(a);
@@ -119,6 +153,13 @@ public class FindProductPageDivideController {
 		}
 	}
 
+	/**
+	 * MacBook分页
+	 * @param rs
+	 * @param a
+	 * @param session
+	 * @param name
+	 */
 	@RequestMapping("/Macbook")
 	public void MacbookPageDivide(HttpServletResponse rs, @RequestParam("num") String a, HttpSession session,@RequestParam("pageName") String name) {
 		int c = Integer.parseInt(a);
@@ -140,6 +181,13 @@ public class FindProductPageDivideController {
 		}
 	}
 
+	/**
+	 * AirConditoner分页
+	 * @param rs
+	 * @param a
+	 * @param session
+	 * @param name
+	 */
 	@RequestMapping("/AirConditoner")
 	public void AirConditonerPageDivide(HttpServletResponse rs, @RequestParam("num") String a, HttpSession session,@RequestParam("pageName") String name) {
 		int c = Integer.parseInt(a);
@@ -162,6 +210,13 @@ public class FindProductPageDivideController {
 		}
 	}
 
+	/**
+	 * PlayStation分页
+	 * @param rs
+	 * @param a
+	 * @param session
+	 * @param name
+	 */
 	@RequestMapping("/Playstation")
 	public void PlaystationPageDivide(HttpServletResponse rs, @RequestParam("num") String a, HttpSession session,@RequestParam("pageName") String name) {
 		int c = Integer.parseInt(a);

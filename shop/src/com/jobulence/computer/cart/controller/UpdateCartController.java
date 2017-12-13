@@ -17,7 +17,11 @@ import com.jobulence.computer.cart.service.FindUserCartQuantity;
 import com.jobulence.computer.cart.service.UpdateCartService;
 import com.jobulence.computer.entity.Cart;
 import com.jobulence.computer.entity.User;
-
+/**
+ * 更新购物车
+ * @author 秦晓宇
+ *
+ */
 @Controller
 public class UpdateCartController {
 	
@@ -28,8 +32,16 @@ public class UpdateCartController {
 	@Resource
 	private FindUserCartQuantity findUserCartQuantity;
 	@RequestMapping(value="update")
+	
+	/**
+	 * 更新购物车 并且把最新数据显示到页面上
+	 * @param session
+	 * @param rs
+	 * @param rq
+	 */
 	public void updateCart(HttpSession session,HttpServletResponse rs,HttpServletRequest rq) {
 		User u = (User)session.getAttribute("user");
+		//通过表单获取值
 		String[] count= rq.getParameterValues("nnn");
 		String[] name = rq.getParameterValues("abcname");
 		if(name != null) {

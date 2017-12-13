@@ -1,5 +1,10 @@
 package com.jobulence.computer.util;
 
+/**
+ * 字符串数组转换成Integer数组
+ * @author 秦晓宇
+ *
+ */
 public class ArrayStringtoInteger {
 
 	public static Integer[] arrayStringtoInteger(String a[]) {

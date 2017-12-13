@@ -15,7 +15,11 @@ import com.jobulence.computer.cart.service.FindTotalPriceService;
 import com.jobulence.computer.cart.service.FindUserCartQuantity;
 import com.jobulence.computer.entity.Cart;
 import com.jobulence.computer.entity.User;
-
+/**
+ * 显示购物车
+ * @author 秦晓宇
+ *
+ */
 @Controller
 public class ShowCartController {
 

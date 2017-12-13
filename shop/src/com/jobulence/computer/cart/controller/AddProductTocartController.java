@@ -16,18 +16,30 @@ import com.jobulence.computer.cart.service.FindUserCartQuantity;
 import com.jobulence.computer.entity.User;
 import com.jobulence.computer.user.service.FindUserByIdService;
 
+/**
+ * 购物车添加
+ * @author 秦晓宇
+ *
+ */
 @Controller
 public class AddProductTocartController {
 
 	@Resource
 	private AddCartService addCartService;
-	
 	@Resource
 	private FindUserByIdService findUserByIdService;
 	@Resource
 	private FindUserCartQuantity findUserCartQuantity;
 	@Resource
 	private FindTotalPriceService findTotalPriceService;
+	
+	/**
+	 * 首页商品添加
+	 * addCart添加购物车,并且通过session里的user查出已经在购物车的商品总价和数量
+	 * @param name获取商品
+	 * @param session
+	 * @param rs
+	 */
 	@RequestMapping("addTocartT")
 	public void addCart(@RequestParam("productname") String name,HttpSession session,HttpServletResponse rs) {
 		User b = (User)session.getAttribute("user");
@@ -45,7 +57,13 @@ public class AddProductTocartController {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * shop页商品添加
+	 * 添加购物车,并且通过session里的user查出已经在购物车的商品总价和数量
+	 * @param name
+	 * @param session
+	 * @param rs
+	 */
 	@RequestMapping("addTocart")
 	public void addToCart(@RequestParam("productname") String name,HttpSession session,HttpServletResponse rs) {
 		User b = (User)session.getAttribute("user");

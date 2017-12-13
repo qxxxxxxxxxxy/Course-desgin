@@ -29,6 +29,7 @@
 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">  
         <property name="cacheManager" ref="ehcache"></property>  
     </bean>
+    <!-- 使用注解的ehcache -->
 	<cache:annotation-driven cache-manager="cacheManager" />
     
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -66,7 +67,8 @@
 				<prop key="hibernate.useUnicode">${hibernate.useUnicode}</prop>
 				<prop key="hibernate.characterEncoding">${hibernate.characterEncoding}</prop>
 				<prop key="current_session_context_class">thread</prop>
-				<prop key="hibernate.connection.autocommit">true</prop>
+				<prop key="hibernate.co
+				nnection.autocommit">true</prop>
 				<prop key="hibernate.id.new_generator_mappings">false</prop>
 			</props>
 		</property>

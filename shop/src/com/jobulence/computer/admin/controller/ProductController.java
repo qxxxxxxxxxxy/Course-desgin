@@ -25,6 +25,11 @@ import com.jobulence.computer.admin.service.UpdateProductService;
 import com.jobulence.computer.entity.Product;
 import com.jobulence.computer.entity.ProductType;
 
+
+/**
+ * 商品管理
+ * @author 秦晓宇
+ */
 @Controller
 @RequestMapping("Product")
 public class ProductController {
@@ -41,19 +46,31 @@ public class ProductController {
 	private AddProductService addProductService;
 	@Resource
 	private AddProductTypeService addProductTypeService;
-	@RequestMapping(value="ProductType")
+	/**
+	 * 商品类型显示
+	 * 内联使用
+	 */
+	@RequestMapping(value="/ProductType")
 	public void productType(@RequestParam("name") String name, HttpSession session, HttpServletResponse rp) throws IOException {
 		name = name + ".jsp";
 		session.setAttribute("jspName", name);
 		rp.sendRedirect("../houtaiguanli/Views/admin.jsp");
 	}
+	/**
+	 * 商品添加显示页面
+	 * 内联使用
+	 */
 	@RequestMapping(value="/showAddProduct",method=RequestMethod.GET)
 	public void showAddProduct(@RequestParam("name") String name, HttpSession session, HttpServletResponse rp) throws IOException {
 		name = name + ".jsp";
 		session.setAttribute("jspName", name);
 		rp.sendRedirect("../houtaiguanli/Views/admin.jsp");
 	}
-	
+	/**
+	 * 显示所有商品
+	 * 并把内联用到的name添加到session
+	 * 把所有的商品集合添加到session
+	 */
 	@RequestMapping("/showProduct")
 	public void showAllProduct(@RequestParam("name") String name, HttpSession session, HttpServletResponse rp)
 			throws IOException {
@@ -66,6 +83,9 @@ public class ProductController {
 		rp.sendRedirect("../houtaiguanli/Views/admin.jsp");
 	}
 
+	/**
+	 * 商品更新 
+	 */
 	@RequestMapping(value = "/updateProduct", method = RequestMethod.POST)
 	public void updateProduct(@RequestParam("productId") int id, @RequestParam("productName") String productName,
 			@RequestParam("productPrice") double price, @RequestParam("productDiscount") double discount,
@@ -74,6 +94,7 @@ public class ProductController {
 			@RequestParam("productTags") String tags,HttpSession session,
 			HttpServletResponse rp, HttpServletRequest rq) throws IOException {
 		String path = session.getServletContext().getRealPath("/");
+		//判断图片是否为空
 		if (file.isEmpty()) {
 			this.updateProductService.updateProduct(id, productName, price, discount, desc, img, productProducttype_id,tags);
 			rp.sendRedirect("../houtaiguanli/Views/admin.jsp");
@@ -88,6 +109,9 @@ public class ProductController {
 		}
 }
 
+	/**
+	 * 商品删除
+	 */
 	@RequestMapping("/deleteProduct")
 	public void delteProduct(@RequestParam("id") int id, HttpServletResponse rp,HttpServletRequest rq) {
 		this.deleteProductService.delteProduct(id);
@@ -99,6 +123,9 @@ public class ProductController {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * 商品添加
+	 */
 	@RequestMapping(value = "/addProduct",method=RequestMethod.POST )
 	public void addProduct(@RequestParam("productName") String productName,
 			@RequestParam("productPrice") double price, @RequestParam("productDiscount") double discount,
@@ -109,6 +136,7 @@ public class ProductController {
 		String img1 = file.getOriginalFilename();
 		img1 = "img/" + img1;
 		String path = session.getServletContext().getRealPath("/");
+		//判断图片是否为空
 		if(file.isEmpty()) {
 			Product p = new Product(productName,price,discount,desc,img1,tags,productProducttype_id);
 			this.addProductService.addProduct(p);
@@ -120,6 +148,9 @@ public class ProductController {
 			rp.sendRedirect("../houtaiguanli/Views/showAddProduct.jsp");
 		}
 	}
+	/**
+	 * 商品类型添加
+	 */
 	@RequestMapping(value="/addProductType",method=RequestMethod.POST)
 	public void addProductType(@RequestParam("productType")String type ,HttpServletResponse rp) throws IOException {
 		ProductType productType = new ProductType();

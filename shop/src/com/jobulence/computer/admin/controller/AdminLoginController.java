@@ -9,7 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+/**
+ * 管理员登录
+ * @author 秦晓宇
+ */
 @Controller
 @RequestMapping("Admin")
 public class AdminLoginController {

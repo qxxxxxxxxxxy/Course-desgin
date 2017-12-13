@@ -15,6 +15,11 @@ import com.jobulence.computer.entity.Cart;
 import com.jobulence.computer.entity.User;
 import com.jobulence.computer.order.service.AddCartToOrder;
 
+/**
+ * 添加到订单
+ * @author 秦晓宇
+ *
+ */
 @Controller
 public class AddToOrderController {
 

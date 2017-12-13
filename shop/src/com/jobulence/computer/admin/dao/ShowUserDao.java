@@ -11,6 +11,11 @@ import org.springframework.stereotype.Repository;
 
 import com.jobulence.computer.entity.User;
 
+/**
+ * 显示所有的用户
+ * @author 秦晓宇
+ *
+ */
 @Repository
 public class ShowUserDao {
 	

@@ -31,9 +31,15 @@ public class AddCartService {
 	
 	@Resource 
 	private FindProductByNameDao findProductByNameDao ;
-	
+	/**
+	 * 通过产品名字添加购物车
+	 * @param name
+	 * @param u
+	 * @return
+	 */
 	public boolean AddCartByName(String name, User u) {
 		Cart a = this.findCartByNameDao.findCartByName(name, u);
+		//判断购物车是否为空
 		if (a == null) {
 			Product p = this.findProductByNameDao.FindProductByName(name);
 			Cart c = new Cart();

@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.jobulence.computer.admin.service.ShowUserService;
 import com.jobulence.computer.entity.User;
 
+/**
+ * 用户管理
+ * @author 秦晓宇
+ *
+ */
 @Controller
 @RequestMapping("User")
 public class UserAdminController {
@@ -21,6 +26,9 @@ public class UserAdminController {
 	@Resource
 	private ShowUserService showUserService;
 	@RequestMapping("/showUser")
+	/**
+	 * 显示用户
+	 */
 	public void showUser(@RequestParam("name") String name,HttpSession session,HttpServletResponse rp) {
 		name = name + ".jsp";
 		session.setAttribute("jspName", name);

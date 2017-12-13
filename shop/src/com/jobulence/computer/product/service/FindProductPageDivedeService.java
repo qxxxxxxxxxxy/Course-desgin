@@ -13,6 +13,7 @@ import com.jobulence.computer.product.dao.FindProductPageDivedeDao;
 
 @Service
 @Transactional(readOnly=true)
+//二级缓存
 @Cacheable(value="hello",key="#id")
 public class FindProductPageDivedeService {
 
