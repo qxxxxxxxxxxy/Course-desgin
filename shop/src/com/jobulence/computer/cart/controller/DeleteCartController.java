@@ -22,7 +22,6 @@ import com.jobulence.computer.user.service.FindUserByIdService;
 /**
  * 商品删除
  * @author 秦晓宇
- *
  */
 @Controller
 public class DeleteCartController {
@@ -39,10 +38,8 @@ public class DeleteCartController {
 	private FindUserCartQuantity findUserCartQuantity;
 	/**
 	 * 删除并且更新购物车
-	 * @param name
-	 * @param rs
-	 * @param session
-	 * @return
+	 * @author 秦晓宇
+	 * @
 	 */
 	@RequestMapping("delteCart")
 	public String deleteAndUpdate(@RequestParam("cname") String name,HttpServletResponse rs,HttpSession session) {
